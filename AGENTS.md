@@ -27,52 +27,42 @@ public/
 ├── scripts/                     # Start scripts (one per application)
 ├── framework/                   # Shared framework library
 │   └── src/main/java/swedberg/framework/
-│       └── utilities/StringHelper.java
+│       ├── utilities/StringHelper.java
+│       └── utilities/PositionTracker.java
 ├── applications/                # Application projects (one subdirectory each)
-│   └── hello-world/
+│   ├── hello-world/
+│   │   ├── build.gradle.kts
+│   │   └── src/main/java/swedberg/applications/hello_world/HelloWorld.java
+│   └── jrobots/
 │       ├── build.gradle.kts
-│       └── src/main/java/swedberg/applications/hello_world/HelloWorld.java
+│       └── src/main/java/swedberg/applications/jrobot/
 └── docs/                        # All documentation
     ├── applications/
-    │   └── hello-world/hello-world.md
+    │   ├── hello-world/hello-world.md
+    │   └── jrobots/jrobots.md
     └── framework/
         └── utilities/string-helper.md
 ```
 
 ## Conventions
 
-- All documentation **must always** be written in English.
-- No files in the repository may contain absolute paths.
-- Gradle wrapper files (`gradlew`, `gradlew.bat`, `gradle/wrapper/`) **must** be committed.
-- Only build artifacts (`.gradle/`, `build/`) are gitignored.
+See full documentation:
+
+- **Coding rules** — `docs/coding-rules.md`
+- **Java** — `docs/java.md`
+- **Gradle** — `docs/gradle.md`
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `.\gradlew build` | Build all projects |
-| `.\gradlew :framework:build` | Build only framework |
-| `.\gradlew :framework:test` | Run framework tests |
-| `.\gradlew :applications:hello-world:build` | Build hello-world |
-| `.\gradlew :applications:hello-world:run` | Run hello-world |
-| `.\gradlew test` | Run all tests |
-| `.\gradlew :framework:test --rerun-tasks` | Force re-run framework tests |
-| `.\scripts\hello-world.bat` | Start script for HelloWorld |
+See `docs/gradle.md` for the full command table.
 
 ## Adding a new application
 
-1. Create `applications/<name>/` with its own `build.gradle.kts` (apply the `application` plugin and set `mainClass`).
-2. Add `include("applications:<name>")` to `settings.gradle.kts`.
-3. Create a start script `scripts/<name>.bat` (and `<name>` for Unix) that runs `.\gradlew :applications:<name>:run`.
-4. Create documentation at `docs/applications/<name>/`.
-5. Add a line for the new application in the Documentation section of this file.
+See `docs/gradle.md` for module setup instructions.
 
 ## Adding a new framework module
 
-1. Create the package under `framework/src/main/java/swedberg/framework/`.
-2. Create documentation at `docs/framework/<module>/`.
-3. If the module needs its own `build.gradle.kts`, add `include("framework:<module>")` to `settings.gradle.kts`.
-4. Add a line for the new module in the Documentation section of this file.
+See `docs/gradle.md` for module setup instructions.
 
 ## Maintaining documentation
 
@@ -95,5 +85,16 @@ All documentation lives under `docs/`:
 
 - `docs/applications/` — one subdirectory per application
   - `docs/applications/hello-world/`
+  - `docs/applications/jrobots/`
+- `docs/jrobots/` — supporting docs for jrobots
+  - `changelog.md`
+  - `notes.md`
+  - `requirements.md`
 - `docs/framework/` — one subdirectory per module
   - `docs/framework/utilities/`
+    - `string-helper.md`
+    - `position-tracker.md`
+- `docs/coding-rules.md` — coding conventions
+- `docs/java.md` — Java version, style, testing
+- `docs/gradle.md` — build system, commands, module setup
+- `docs/quickstart.md` — quick-start guide for AI agents
