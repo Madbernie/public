@@ -33,9 +33,12 @@ public/
 │   ├── hello-world/
 │   │   ├── build.gradle.kts
 │   │   └── src/main/java/swedberg/applications/hello_world/HelloWorld.java
-│   └── jrobots/
+│   ├── jrobots/
+│   │   ├── build.gradle.kts
+│   │   └── src/main/java/swedberg/applications/jrobot/
+│   └── mother/
 │       ├── build.gradle.kts
-│       └── src/main/java/swedberg/applications/jrobot/
+│       └── src/main/java/swedberg/applications/mother/Mother.java
 └── docs/                        # All documentation
     ├── applications/
     │   ├── hello-world/hello-world.md
@@ -86,6 +89,7 @@ All documentation lives under `docs/`:
 - `docs/applications/` — one subdirectory per application
   - `docs/applications/hello-world/`
   - `docs/applications/jrobots/`
+  - `docs/applications/mother/`
 - `docs/jrobots/` — supporting docs for jrobots
   - `changelog.md`
   - `notes.md`

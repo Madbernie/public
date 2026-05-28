@@ -2,10 +2,10 @@ plugins {
     application
 }
 
-description = "JRobot - Robot fighting game"
+description = "Mother — empty canvas window"
 
 application {
-    mainClass = "swedberg.applications.jrobot.JRobotGUI"
+    mainClass = "swedberg.applications.mother.Mother"
 }
 
 dependencies {
